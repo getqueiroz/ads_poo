@@ -1,5 +1,3 @@
-package src;
-
 import src.main.Contato;
 
 public class Application {
