@@ -1,15 +1,15 @@
 package heranca.src.main;
 
 public class Cliente {
-    private Long id;
+    private static Long id = 0L;
+
     private String nome;
     private String tipo; 
 
     public static final String pessoaFisica = "PESSOA_FISICA";
     public static final String pessoaJuridica = "PESSOA_JURICA";
 
-    public Cliente(Long id, String nome, String tipo) {
-        this.id = id;
+    public Cliente(String nome,  String tipo) {
         this.nome = nome;
         this.tipo = tipo;
     }
@@ -37,4 +37,24 @@ public class Cliente {
     // }
 
     // getters and setters
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public Long generateId() {
+        id += 1;
+        return id;
+    }
 }
