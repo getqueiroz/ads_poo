@@ -1,0 +1,68 @@
+- Sistema de Gestão Acadêmica de Escola de Nível Técnico (Curso Técnico)
+
+- Representação de uma classe
+- Associação / Agregação / Composição / Herança / Dependência
+- Cardinalidade (Multiplicidade) 1
+
+class Curso
+    - código
+    - nome
+    - duração
+    - area
+    - formato
+    - descrição
+    - carga horária
+    - valor mensal
+
+class Disciplina
+    - codigo
+    - curso
+    - nome
+    - professor
+    - ementa
+    - carga horária
+
+class Turma
+    - codigo
+    - curso
+    - sala
+    - data de inicio
+    - data de conclusão
+
+class Aluno
+    - código
+    - turma
+    - nome
+    - sexo
+    - cpf
+    - data de nascimento
+    - email
+    - telefone
+    - endereço
+    - responsável
+
+     matricula(turma)
+
+class Professor
+    - código
+    - nome
+    - sexo
+    - cpf
+    - data de nascimento
+    - email
+    - telefone
+    - endereço
+    - área
+    - formação
+    - data de contratação
+    - salário
+
+    calcularSalario(horasTrabalhadas)
+    calcularAdicional()
+    
+
+
+
+
+
+
