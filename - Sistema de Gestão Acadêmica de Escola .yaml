@@ -3,6 +3,7 @@
 - Representação de uma classe
 - Associação / Agregação / Composição / Herança / Dependência
 - Cardinalidade (Multiplicidade) 1
+- DrawIo: https://drive.google.com/file/d/1NYfdHNzp4LLDyt7Is10R3teSbTMp5nur/view?usp=sharing
 
 class Curso
     - código
@@ -22,6 +23,23 @@ class Disciplina
     - ementa
     - carga horária
 
+class Professor
+    - código
+    - nome
+    - sexo
+    - cpf
+    - data de nascimento
+    - email
+    - telefone
+    - endereço
+    - área
+    - formação
+    - data de contratação
+    - salário
+
+    calcularSalario(horasTrabalhadas)
+    calcularAdicional()
+    
 class Turma
     - codigo
     - curso
@@ -42,23 +60,6 @@ class Aluno
     - responsável
 
      matricula(turma)
-
-class Professor
-    - código
-    - nome
-    - sexo
-    - cpf
-    - data de nascimento
-    - email
-    - telefone
-    - endereço
-    - área
-    - formação
-    - data de contratação
-    - salário
-
-    calcularSalario(horasTrabalhadas)
-    calcularAdicional()
     
 
 
