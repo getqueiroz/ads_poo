@@ -23,7 +23,7 @@ public class Professor {
 
     public Professor(Long codigo, String nome, Sexo sexo, String cpf, LocalDate dataNascimento, String email,
             String telefone, String endereco, Area area, String formacao, LocalDate dataContratacao,
-            Float valorHoraAula, List<Disciplina> disciplinas) {
+            Float valorHoraAula) {
         this.codigo = codigo;
         this.nome = nome;
         this.sexo = sexo;
@@ -36,7 +36,6 @@ public class Professor {
         this.formacao = formacao;
         this.dataContratacao = dataContratacao;
         this.valorHoraAula = valorHoraAula;
-        this.disciplinas = disciplinas;
     }
 
     public Long getCodigo() {
@@ -124,5 +123,30 @@ public class Professor {
 
     private Float calcularAdicional() {
         return 0f;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((cpf == null) ? 0 : cpf.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Professor other = (Professor) obj;
+        if (cpf == null) {
+            if (other.cpf != null)
+                return false;
+        } else if (!cpf.equals(other.cpf))
+            return false;
+        return true;
     }
 }

@@ -1,4 +1,4 @@
-- Sistema de Gestão Acadêmica de Escola de Nível Técnico (Curso Técnico)
+- Sistema de Gestão Acadêmica
 
 - Representação de uma classe
 - Associação / Agregação / Composição / Herança / Dependência
@@ -37,9 +37,6 @@ class Professor
     - data de contratação
     - salário
 
-    calcularSalario(horasTrabalhadas)
-    calcularAdicional()
-    
 class Turma
     - codigo
     - curso
@@ -58,12 +55,3 @@ class Aluno
     - telefone
     - endereço
     - responsável
-
-     matricula(turma)
-    
-
-
-
-
-
-

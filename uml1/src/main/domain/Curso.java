@@ -92,5 +92,13 @@ public class Curso {
     public void setArea(Area area) {
         this.area = area;
     }
+
+    public List<Disciplina> getDisciplinas() {
+        return disciplinas;
+    }
+
+    public void setDisciplinas(List<Disciplina> disciplinas) {
+        this.disciplinas = disciplinas;
+    }
     
 }

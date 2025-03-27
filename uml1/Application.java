@@ -27,11 +27,7 @@ public class Application {
             66
         );
 
-        List<Disciplina> disciplinas = new ArrayList<Disciplina>();
-        disciplinas.add(novaDisciplina1);
-        disciplinas.add(novaDisciplina2);
-
-        Professor novoProfessor = new Professor(
+        Professor novoProfessor1 = new Professor(
             1L, 
             "Guylherme Emmanuel", 
             Sexo.MASCULINO, 
@@ -43,21 +39,48 @@ public class Application {
             Area.TECNOLOGIA,
             "Mestre", 
             LocalDate.parse("2016-03-01"), 
-            35.5f, 
-            disciplinas
+            35.5f
         );
 
-        Curso novoCurso = new Curso(
+        Professor novoProfessor2 = new Professor(
             1L, 
-            "Análise e Desenvolvimento de Sistemas", 
-            4, 
-            Formato.PRESENCIAL, 
-            "O Curso com o melhor professor de POO", 
-            2008, 
-            600.0f, 
+            "Guylherme Emmanuel", 
+            Sexo.MASCULINO, 
+            "123.456.789-00",
+            LocalDate.parse("1987-12-10"), 
+            "guylherme.emmanuel@unorte.edu.br",
+            "17-98164461", 
+            "Rua Sem Nome, Número 0", 
             Area.TECNOLOGIA,
-            disciplinas
+            "Mestre", 
+            LocalDate.parse("2016-03-01"), 
+            35.5f
         );
+
+        String a1 = "a";
+        String a2 = "a";
+        
+        if(a1 == a2);
+        
+        Float c1 = 3f;
+        Float c2 = 3f;
+        
+        if(c1 == c2);
+
+        novaDisciplina1.adicionaProfessor(novoProfessor1);
+        novaDisciplina1.adicionaProfessor(novoProfessor1);
+
+
+        // Curso novoCurso = new Curso(
+        //     1L, 
+        //     "Análise e Desenvolvimento de Sistemas", 
+        //     4, 
+        //     Formato.PRESENCIAL, 
+        //     "O Curso com o melhor professor de POO", 
+        //     2008, 
+        //     600.0f, 
+        //     Area.TECNOLOGIA
+        // );
 
     }
 }

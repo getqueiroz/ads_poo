@@ -1,5 +1,6 @@
 package uml1.src.main.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Disciplina {
@@ -15,16 +16,19 @@ public class Disciplina {
         this.nome = nome;
         this.ementa = ementa;
         this.cargaHoraria = cargaHoraria;
+        this.professores = new ArrayList<Professor>();
     }
 
-    public Disciplina(Long codigo, String nome, String ementa, Integer cargaHoraria, List<Professor> professores,
-            List<Curso> cursos) {
-        this.codigo = codigo;
-        this.nome = nome;
-        this.ementa = ementa;
-        this.cargaHoraria = cargaHoraria;
-        this.professores = professores;
-        this.cursos = cursos;
+    public boolean adicionaProfessor(Professor professor) {
+        int len = this.professores.size();
+
+        for(int i = 0; i < len; i++) {
+            if(this.professores.get(i) == professor) {
+                return false;
+            }
+        }
+        professores.add(professor);
+        return true;
     }
 
     public Long getCodigo() {
@@ -54,15 +58,11 @@ public class Disciplina {
     public List<Professor> getProfessores() {
         return professores;
     }
-    public void setProfessores(List<Professor> professores) {
-        this.professores = professores;
-    }
     public List<Curso> getCursos() {
         return cursos;
     }
     public void setCursos(List<Curso> cursos) {
         this.cursos = cursos;
     }
-
     
 }
