@@ -1,4 +1,4 @@
-package uml1.src.main.domain;
+package uml.atividade1.src.main.domain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +10,10 @@ public class Disciplina {
     private Integer cargaHoraria;
     private List<Professor> professores;
     private List<Curso> cursos;
+
+    Disciplina(){
+        
+    }
 
     public Disciplina(Long codigo, String nome, String ementa, Integer cargaHoraria) {
         this.codigo = codigo;

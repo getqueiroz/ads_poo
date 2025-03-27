@@ -12,8 +12,6 @@
     - [Composição](#composição)
     - [Dependência](#dependência)
   - [Exercício Prático](#exercício-prático)
-  - [Conclusão](#conclusão)
-    - [Diagrama Síntese](#diagrama-síntese)
     - [Checklist de Verificação](#checklist-de-verificação)
 
 ---
@@ -133,20 +131,6 @@ class Pedido {
 2. Como implementar a relação entre `Pedido` e `NotaFiscal`?
 
 ---
-
-## Conclusão
-
-### Diagrama Síntese
-```mermaid
-classDiagram
-    class Carrinho {
-        +itens: List~Item~
-        +adicionarItem()
-    }
-    
-    Carrinho "1" *-- "0..*" Item : Composição
-    Item "1" --> "1" Produto : Associação
-```
 
 ### Checklist de Verificação
 - [ ] Entendi as 4 formas de relacionamento
