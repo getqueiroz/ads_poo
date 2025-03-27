@@ -1,9 +1,9 @@
-package uml1.src.main.domain;
+package uml.atividade1.src.main.domain;
 
 import java.util.List;
 
-import uml1.src.main.domain.enums.Area;
-import uml1.src.main.domain.enums.Formato;
+import uml.atividade1.src.main.domain.enums.Area;
+import uml.atividade1.src.main.domain.enums.Formato;
 
 public class Curso {
     private Long codigo;
