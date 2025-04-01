@@ -1,9 +1,11 @@
 package uml.atividade1.src.main.domain;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.List;
 
 import uml.atividade1.src.main.domain.enums.Area;
+import uml.atividade1.src.main.domain.enums.Formacao;
 import uml.atividade1.src.main.domain.enums.Sexo;
 
 public class Professor {
@@ -16,13 +18,13 @@ public class Professor {
     private String telefone;
     private String endereco;
     private Area area;
-    private String formacao;
+    private Formacao formacao;
     private LocalDate dataContratacao;
     private Float valorHoraAula;
     private List<Disciplina> disciplinas;
 
     public Professor(Long codigo, String nome, Sexo sexo, String cpf, LocalDate dataNascimento, String email,
-            String telefone, String endereco, Area area, String formacao, LocalDate dataContratacao,
+            String telefone, String endereco, Area area, Formacao formacao, LocalDate dataContratacao,
             Float valorHoraAula) {
         this.codigo = codigo;
         this.nome = nome;
@@ -92,10 +94,10 @@ public class Professor {
     public void setArea(Area area) {
         this.area = area;
     }
-    public String getFormacao() {
+    public Formacao getFormacao() {
         return formacao;
     }
-    public void setFormacao(String formacao) {
+    public void setFormacao(Formacao formacao) {
         this.formacao = formacao;
     }
     public LocalDate getDataContratacao() {
@@ -117,12 +119,24 @@ public class Professor {
         this.disciplinas = disciplinas;
     }
 
+    /*
+     * adicional = (anos_trabalhados/10) * k_formacao
+     * salário = horas_trabalhadas * valorHoraAula * adicional
+     * k_formacao: <1, Especialista> <2, Mestre> <3, Doutor>
+     */
+
     public Float calcularSalario() {
         return 0f;
     }
 
-    private Float calcularAdicional() {
-        return 0f;
+    private Double calcularAdicional() {
+        LocalDate dataAtual = LocalDate.now();
+        Period periodo = Period.between(dataContratacao, dataAtual);
+        int anosTrabalhados = periodo.getYears();
+        int indiceFormacao = formacao.ordinal() + 1;
+        Double adicional = (anosTrabalhados / 10.0) * indiceFormacao;
+        
+        return adicional;
     }
 
     @Override

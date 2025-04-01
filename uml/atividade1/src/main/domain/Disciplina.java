@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Disciplina {
+
     private Long codigo;
     private String nome;
     private String ementa;
@@ -11,9 +12,6 @@ public class Disciplina {
     private List<Professor> professores;
     private List<Curso> cursos;
 
-    Disciplina(){
-        
-    }
 
     public Disciplina(Long codigo, String nome, String ementa, Integer cargaHoraria) {
         this.codigo = codigo;
