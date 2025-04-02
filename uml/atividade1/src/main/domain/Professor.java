@@ -23,6 +23,8 @@ public class Professor {
     private Float valorHoraAula;
     private List<Disciplina> disciplinas;
 
+    private final float DECENIO = 10;
+
     public Professor(Long codigo, String nome, Sexo sexo, String cpf, LocalDate dataNascimento, String email,
             String telefone, String endereco, Area area, Formacao formacao, LocalDate dataContratacao,
             Float valorHoraAula) {
@@ -134,7 +136,7 @@ public class Professor {
         Period periodo = Period.between(dataContratacao, dataAtual);
         int anosTrabalhados = periodo.getYears();
         int indiceFormacao = formacao.ordinal() + 1;
-        Double adicional = (anosTrabalhados / 10.0) * indiceFormacao;
+        Double adicional = (anosTrabalhados / DECENIO) * indiceFormacao;
         
         return adicional;
     }

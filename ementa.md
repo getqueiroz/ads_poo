@@ -25,3 +25,22 @@
 - DEITEL, H. M; DEITEL, P. J; NIETO, T. R. Visual basic.net: como programar. São Paulo: Pearson Education do Brasil. (BV)
 - [Revista Brasileira de Informática na Educação - REIC](http://br-ie.org/pub/index.php/sbie)
 - [Informática na Educação: Teoria e Prática - UFRGS](https://seer.ufrgs.br/index.php/InfEducTeoriaPratica/issue/archive)
+
+
+## Conteúdo Primeiro Bimestre
+
+- Introdução à POO
+- Paradigmas de programação
+- Primeiros passos em POO
+- Modelagem de classes
+- Implementação de classes
+- Encapsulamento
+- Implementação de encapsulamento
+- Relacionamentos entre classes
+- Exercícios de associação
+- Herança
+- Implementação de herança
+- Polimorfismo
+- Aplicação de polimorfismo
+- Classes abstratas
+- Interfaces
