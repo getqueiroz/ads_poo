@@ -42,5 +42,3 @@
 - Implementação de herança
 - Polimorfismo
 - Aplicação de polimorfismo
-- Classes abstratas
-- Interfaces

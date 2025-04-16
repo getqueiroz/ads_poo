@@ -23,7 +23,7 @@ public class Professor {
     private Float valorHoraAula;
     private List<Disciplina> disciplinas;
 
-    private final float DECENIO = 10;
+    private final double DECENIO = 10.0;
 
     public Professor(Long codigo, String nome, Sexo sexo, String cpf, LocalDate dataNascimento, String email,
             String telefone, String endereco, Area area, Formacao formacao, LocalDate dataContratacao,
@@ -121,14 +121,12 @@ public class Professor {
         this.disciplinas = disciplinas;
     }
 
-    /*
-     * adicional = (anos_trabalhados/10) * k_formacao
-     * salário = horas_trabalhadas * valorHoraAula * adicional
-     * k_formacao: <1, Especialista> <2, Mestre> <3, Doutor>
-     */
+    public float calcularSalario(float horasTrabalhadas) {
+        Double indiceAdicional = calcularAdicional();
+        float salario = horasTrabalhadas * valorHoraAula.floatValue()
+        float salarioFinal =  salario * indiceAdicional.floatValue();
 
-    public Float calcularSalario() {
-        return 0f;
+        return salarioFinal;
     }
 
     private Double calcularAdicional() {
@@ -137,6 +135,10 @@ public class Professor {
         int anosTrabalhados = periodo.getYears();
         int indiceFormacao = formacao.ordinal() + 1;
         Double adicional = (anosTrabalhados / DECENIO) * indiceFormacao;
+
+        if(adicional <= 0.0) { 
+            adicional = 1.0;
+        }
         
         return adicional;
     }

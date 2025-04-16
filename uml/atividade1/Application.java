@@ -1,6 +1,5 @@
 package uml.atividade1;
 
-import java.text.Format;
 import java.time.LocalDate;
 
 import uml.atividade1.src.main.domain.Disciplina;
@@ -40,10 +39,10 @@ public class Application {
             35.5f
         );
         
+        novaDisciplina1.adicionaProfessor(novoProfessor1);
+        novaDisciplina2.adicionaProfessor(novoProfessor1);
 
-        novoProfessor1.calcularAdicional();
-
-        // novaDisciplina1.adicionaProfessor(novoProfessor1);
-        // novaDisciplina2.adicionaProfessor(novoProfessor1);
+        Float salario = novoProfessor1.calcularSalario(40);
+        System.out.println("Salário calculado: R$" + salario);
     }
 }
