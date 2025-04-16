@@ -1,7 +1,6 @@
 package uml.atividade1.src.main.domain;
 
 import java.time.LocalDate;
-import java.time.Period;
 import java.util.List;
 
 import uml.atividade1.src.main.domain.enums.Area;
@@ -22,8 +21,6 @@ public class Professor {
     private LocalDate dataContratacao;
     private Float valorHoraAula;
     private List<Disciplina> disciplinas;
-
-    private final double DECENIO = 10.0;
 
     public Professor(Long codigo, String nome, Sexo sexo, String cpf, LocalDate dataNascimento, String email,
             String telefone, String endereco, Area area, Formacao formacao, LocalDate dataContratacao,
@@ -121,26 +118,9 @@ public class Professor {
         this.disciplinas = disciplinas;
     }
 
-    public float calcularSalario(float horasTrabalhadas) {
-        Double indiceAdicional = calcularAdicional();
-        float salario = horasTrabalhadas * valorHoraAula.floatValue()
-        float salarioFinal =  salario * indiceAdicional.floatValue();
-
-        return salarioFinal;
-    }
-
-    private Double calcularAdicional() {
-        LocalDate dataAtual = LocalDate.now();
-        Period periodo = Period.between(dataContratacao, dataAtual);
-        int anosTrabalhados = periodo.getYears();
-        int indiceFormacao = formacao.ordinal() + 1;
-        Double adicional = (anosTrabalhados / DECENIO) * indiceFormacao;
-
-        if(adicional <= 0.0) { 
-            adicional = 1.0;
-        }
-        
-        return adicional;
+    public float calcularSalario(float horasTrabalhadas, CalculadoraSalario calculadoraSalario
+    ) {
+        return calculadoraSalario.calcular(horasTrabalhadas, this);
     }
 
     @Override

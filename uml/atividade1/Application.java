@@ -1,7 +1,11 @@
 package uml.atividade1;
 
 import java.time.LocalDate;
+import java.time.Month;
 
+import uml.atividade1.src.main.domain.CalculadoraSalario;
+import uml.atividade1.src.main.domain.CalculadoraSalarioDefault;
+import uml.atividade1.src.main.domain.CalculadoraSalarioDezembro;
 import uml.atividade1.src.main.domain.Disciplina;
 import uml.atividade1.src.main.domain.Professor;
 import uml.atividade1.src.main.domain.enums.Area;
@@ -42,7 +46,18 @@ public class Application {
         novaDisciplina1.adicionaProfessor(novoProfessor1);
         novaDisciplina2.adicionaProfessor(novoProfessor1);
 
-        Float salario = novoProfessor1.calcularSalario(40);
+        CalculadoraSalario cSalario = null;
+        LocalDate dataAtual =  LocalDate.of(2025, 11, 1);
+        if(dataAtual.getMonth() == Month.DECEMBER) {
+            cSalario = new CalculadoraSalarioDezembro();
+        } else {
+            cSalario = new CalculadoraSalarioDefault();
+        }
+
+        Float salario = novoProfessor1.calcularSalario(40, cSalario);
         System.out.println("Salário calculado: R$" + salario);
+        
     }
+
+    CalculadoraSalario calc = new CalculadoraSalarioDefault();
 }
