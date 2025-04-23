@@ -7,12 +7,11 @@ public class CalculadoraSalarioDefault extends CalculadoraSalario{
         float valorHoraAula = professor.getValorHoraAula().floatValue();
         float salario = horasTrabalhadas * valorHoraAula;
 
-        return salario;
+        return salario + Double.valueOf(calcularAdicional(professor)).floatValue();
     }
 
     @Override
     double calcularAdicional(Professor professor) {
-        throw new UnsupportedOperationException("Unimplemented method 'calcularAdicional'");
+        return 0.0;
     }
-    
 }
