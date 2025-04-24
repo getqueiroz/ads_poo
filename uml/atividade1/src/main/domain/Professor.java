@@ -123,7 +123,7 @@ public class Professor {
 
     public float calcularSalario(float horasTrabalhadas) {
         Double indiceAdicional = calcularAdicional();
-        float salario = horasTrabalhadas * valorHoraAula.floatValue()
+        float salario = horasTrabalhadas * valorHoraAula.floatValue();
         float salarioFinal =  salario * indiceAdicional.floatValue();
 
         return salarioFinal;
