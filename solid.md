@@ -215,3 +215,147 @@ class Application {
   }
 }
 ```
+
+## I: Interface Segregation Principle (ISP - Princípio da Segregação de Interfaces)
+
+> Nenhuma classe deve ser forçada a implementar métodos que não precisa
+
+### Exemplo de violação do ISP
+
+```java
+public interface Funcionario {
+  void trabalhar();
+  void comer();
+}
+
+public class Desenvolvedor implements Funcionario {
+  public void trabalhar() {
+    system.out.println("Desenvolvendo...");
+  }
+
+  public void comer() {
+    system.out.println("Desenvolvedor não tem tempo pra comer");
+  }
+}
+
+public class RoboDesenvolvedor implements Funcionario {
+    public void trabalhar() {
+    system.out.println("Desenvolvendo...");
+  }
+
+  public void comer() {
+    throw new UnsuportedOperationException("Robô não se alimenta");
+  }
+}
+```
+
+### Solução
+
+```java
+public interface Trabalhador {
+  public void trabalhar();
+} 
+
+public interface SerHumano {
+  public void comer();
+}
+
+public class Desenvolvedor implements Trabalhador, SerHumano {
+  public void trabalhar() {
+    system.out.println("Desenvolvendo...");
+  }
+
+  public void comer() {
+    system.out.println("Desenvolvedor não tem tempo pra comer");
+  }
+}
+
+public class RoboDesenvolvedor implements Trabalhador {
+    public void trabalhar() {
+    system.out.println("Desenvolvendo...");
+  }
+}
+```
+
+## D: Dependency Inversion Principle (DIP - Princípio da Inversão de Dependência)
+
+> Módulos de alto nível não devem depender de módulos de baixo nível, em outras palavras, abstrações não devem depender de detalhes. Detalhes devem depender de abstrações.
+
+### Exemplo de violação do DIP
+
+```java
+public class MySQLDatabase {
+  public void salvar(String dado) {
+      System.out.println("Salvando no banco");
+  }
+}
+
+public class UsuarioService {
+  private MySQLDatabase database;
+
+  public UsuarioService() {
+    this.database = new MySQLDatabase();
+  }
+
+  public void gravar(String nome) {
+    database.salvar(nome);
+  }
+}
+
+```
+
+### Correção
+
+```java
+public interface Database {
+  public void salvar(String dado);
+}
+
+public MySQLDatabase implements Database {
+  public void salvar(String dado) {
+    System.out.println("Salvando no MySQL");
+  }
+}
+
+public MongoDatabase implements Database {
+  public void salvar(String dado) {
+    System.out.println("Salvando no MongoDB");
+  }
+}
+
+
+public class UsuarioService {
+  private Database database;
+
+  public UsuarioService(Database database) {
+    this.database = database;
+  }
+
+  public void gravar(String nome) {
+    database.salvar(nome);
+  }
+}
+
+public class Application {
+  public static main() {
+    Database database = new MySQLDatabase();
+    UsuarioService usuarioService = new UsuarioService(database);
+  }
+}
+```
+
+## Exercícios
+Identifique os princípios violados abaixo e refatore o código com a respectiva correção.
+
+### Exercício 1
+```java 
+public class SomAnimal {
+  public void emitirSom(String tipo) {
+    if (tipo.equals("cachoro")) {
+      System.out.println("Au au");
+    } else if (tipo.equals("gato")){
+      System.out.println("Miau");
+    }
+  }
+}
+```
