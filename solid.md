@@ -391,4 +391,82 @@ public class Main {
         fazerPassaroVoar(ostrich); 
     }
 }
+
+### Execício 3
+```java
+class EmailSender {
+    public void send(String message) {
+        System.out.println("Enviando e-mail: " + message);
+    }
+}
+
+class NotificationService {
+    private EmailSender emailSender;
+
+    public NotificationService() {
+        this.emailSender = new EmailSender();
+    }
+
+    public void notifyUser(String message) {
+        emailSender.send(message);
+    }
+}
+```
+
+### Execício 4
+```java
+interface Veiculo {
+    void dirigir();
+    void voar();
+    void navegar();
+}
+
+class Carro implements Veiculo {
+    @Override
+    public void dirigir() {
+        System.out.println("Carro dirigindo na estrada");
+    }
+
+    @Override
+    public void voar() {
+        throw new UnsupportedOperationException("Carro não pode voar!");
+    }
+
+    @Override
+    public void navegar() {
+        throw new UnsupportedOperationException("Carro não pode navegar!");
+    }
+}
+
+class Barco implements Veiculo {
+    @Override
+    public void dirigir() {
+        throw new UnsupportedOperationException("Barco não pode dirigir!");
+    }
+
+    @Override
+    public void voar() {
+        throw new UnsupportedOperationException("Barco não pode voar!");
+    }
+
+    @Override
+    public void navegar() {
+        System.out.println("Barco navegando no mar");
+    }
+}
+``` 
+
+### Execício 5
+```java
+class Relatorio {
+    public void gerarRelatorio(String tipo) {
+        if (tipo.equals("PDF")) {
+            System.out.println("Gerando relatório em PDF...");
+        } else if (tipo.equals("HTML")) {
+            System.out.println("Gerando relatório em HTML...");
+        } else {
+            System.out.println("Formato não suportado.");
+        }
+    }
+}
 ```
