@@ -312,12 +312,14 @@ public interface Database {
 }
 
 public MySQLDatabase implements Database {
+  @Override
   public void salvar(String dado) {
     System.out.println("Salvando no MySQL");
   }
 }
 
 public MongoDatabase implements Database {
+  @Override
   public void salvar(String dado) {
     System.out.println("Salvando no MongoDB");
   }
@@ -338,7 +340,7 @@ public class UsuarioService {
 
 public class Application {
   public static main() {
-    Database database = new MySQLDatabase();
+    Database database = new MongoDBDatabase();
     UsuarioService usuarioService = new UsuarioService(database);
   }
 }
@@ -357,5 +359,36 @@ public class SomAnimal {
       System.out.println("Miau");
     }
   }
+}
+```
+
+### Exercício 2
+```java 
+class Passaro {
+    public void voar() {
+        System.out.println("Pássaro está voando");
+    }
+}
+
+class Avestruz extends Passaro {
+    @Override
+    public void voar() {
+        // Avestruzes não voam!
+        throw new UnsupportedOperationException("Avestruz não pode voar");
+    }
+}
+
+public class Main {
+    public static void fazerPassaroVoar(Passaro passaro) {
+        passaro.voar();
+    }
+
+    public static void main(String[] args) {
+        Passaro passaro = new Passaro();
+        fazerPassaroVoar(bird);
+
+        Passaro avestruz = new Avestruz();
+        fazerPassaroVoar(ostrich); 
+    }
 }
 ```
