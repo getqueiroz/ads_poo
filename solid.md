@@ -373,7 +373,6 @@ class Passaro {
 class Avestruz extends Passaro {
     @Override
     public void voar() {
-        // Avestruzes não voam!
         throw new UnsupportedOperationException("Avestruz não pode voar");
     }
 }
