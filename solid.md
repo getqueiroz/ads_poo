@@ -391,6 +391,7 @@ public class Main {
         fazerPassaroVoar(ostrich); 
     }
 }
+```
 
 ### Execício 3
 ```java
