@@ -349,7 +349,7 @@ public class Application {
 ## Exercícios
 Identifique os princípios violados abaixo e refatore o código com a respectiva correção.
 
-### Exercício 1
+### Exercício 1 - OCP
 ```java 
 public class SomAnimal {
   public void emitirSom(String tipo) {
@@ -362,7 +362,7 @@ public class SomAnimal {
 }
 ```
 
-### Exercício 2
+### Exercício 2 - LSP
 ```java 
 class Passaro {
     public void voar() {
@@ -392,7 +392,7 @@ public class Main {
 }
 ```
 
-### Execício 3
+### Execício 3 - DIP
 ```java
 class EmailSender {
     public void send(String message) {
@@ -413,7 +413,7 @@ class NotificationService {
 }
 ```
 
-### Execício 4
+### Execício 4 - ISP
 ```java
 interface Veiculo {
     void dirigir();
@@ -456,7 +456,7 @@ class Barco implements Veiculo {
 }
 ``` 
 
-### Execício 5
+### Execício 5 - SRP + OCP
 ```java
 class Relatorio {
     public void gerarRelatorio(String tipo) {
